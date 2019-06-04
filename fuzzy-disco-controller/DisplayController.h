@@ -4,11 +4,11 @@
 class DisplayController
 {
   private:
-  SSD1306 display;
+    SSD1306 display;
 
   public:
-  DisplayController(uint8_t address, uint8_t sda, uint8_t scl);
-  void Initialize();
-  void WriteToDisplay(String text);
+    DisplayController(uint8_t address, uint8_t sda, uint8_t scl);
+    void Initialize();
+    void WriteToDisplay(String text);
 };
 
