@@ -8,6 +8,6 @@ class PacketReceiver
 
   public:
     void Initialize();
-    void Receive(uint8_t* outputBuffer, int bufferSize);
+    bool Receive(uint8_t* outputBuffer, int bufferSize);
 };
 

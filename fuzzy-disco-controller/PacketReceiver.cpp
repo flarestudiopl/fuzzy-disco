@@ -5,7 +5,7 @@ void PacketReceiver::Initialize()
   udp.begin(50000);
 }
 
-void PacketReceiver::Receive(uint8_t outputBuffer[], int bufferSize)
+bool PacketReceiver::Receive(uint8_t outputBuffer[], int bufferSize)
 {
   if (udp.parsePacket())
   {
@@ -13,7 +13,11 @@ void PacketReceiver::Receive(uint8_t outputBuffer[], int bufferSize)
     if (opCode == 0x02) {
       this->ProcessDirectWrite(outputBuffer, bufferSize);
     }
+
+    return true;
   }
+
+  return false;
 }
 
 void PacketReceiver::ProcessDirectWrite(uint8_t outputBuffer[], int bufferSize)
